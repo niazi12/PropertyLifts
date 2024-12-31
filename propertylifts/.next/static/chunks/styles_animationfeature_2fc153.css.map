@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/niazimahrab/Desktop/PropertyLiftsLtd/PropertyLifts/propertylifts/styles/animationfeature.css"],"sourcesContent":["/* animations.css */\n\n@keyframes fadeIn {\n    from {\n      opacity: 0;\n    }\n    to {\n      opacity: 1;\n    }\n  }\n  \n  .fade-in {\n    animation: fadeIn 2s ease-in-out;\n  }"],"names":[],"mappings":"AAEA;;;;;;;;;;AASE"}},
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
