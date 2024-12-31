@@ -1,0 +1,16 @@
+/* [project]/styles/animationfeature.css [app-client] (css) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: 2s ease-in-out fadeIn;
+}
+
+/*# sourceMappingURL=styles_animationfeature_b52d8e.css.map*/

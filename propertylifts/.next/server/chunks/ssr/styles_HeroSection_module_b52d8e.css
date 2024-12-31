@@ -1,0 +1,42 @@
+/* [project]/styles/HeroSection.module.css [app-client] (css) */
+@keyframes HeroSection-module__fSZHDq__shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes HeroSection-module__fSZHDq__blur {
+  0% {
+    filter: blur();
+  }
+
+  50% {
+    filter: blur(4px);
+  }
+
+  100% {
+    filter: blur();
+  }
+}
+
+.HeroSection-module__fSZHDq__animate-shake-blur {
+  animation: 2s ease-in-out infinite HeroSection-module__fSZHDq__shake, 3s ease-in-out infinite HeroSection-module__fSZHDq__blur;
+}
+
+/*# sourceMappingURL=styles_HeroSection_module_b52d8e.css.map*/
