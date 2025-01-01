@@ -68,16 +68,16 @@ const Footer = () => {
               href="tel:+447359817484"
               className="hover:text-blue-400 transition transform hover:scale-105"
             >
-              +44 1234 567890
+              +44 7359 817484
             </a>
           </p>
           <p className="text-sm">
             Email:{" "}
             <a
-              href="mailto:info@propertylifts.com"
+              href="mailto:info@propertylifts.co.uk"
               className="hover:text-blue-400 transition transform hover:scale-105"
             >
-              info@propertylifts.com
+              info@propertylifts.co.uk
             </a>
           </p>
         </div>
@@ -86,7 +86,7 @@ const Footer = () => {
       {/* Social Links */}
       <div className="container mx-auto mt-8 flex justify-center space-x-6">
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61556512595183"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-blue-500 transition transform hover:scale-125"
@@ -94,7 +94,7 @@ const Footer = () => {
           <Facebook className="w-6 h-6" />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/company/property-lifts-ltd/?viewAsMember=true"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-blue-600 transition transform hover:scale-125"

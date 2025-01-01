@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 const HeroSection = () => {
   return (
-    <section className="relative h-[45dvh] flex items-center justify-center bg-black">
+    <section className="relative h-screen flex items-center justify-center bg-black">
       {/* Background with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
