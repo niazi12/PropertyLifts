@@ -48,8 +48,8 @@ const Navbar = () => {
             Property Lifts Ltd
           </span>
         </Link>
-
-        <NavigationMenu className="hidden md:flex ml-auto">
+        {/* <NavigationMenu className="md:flex ml-auto"> */}
+        <NavigationMenu className="md:flex ml-auto">
           <NavigationMenuList>
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.title}>

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 const AboutSection = ({ title, children }) => (
-  <Card className="p-6 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white/60 to-gray-100 backdrop-blur-lg border border-gray-200">
+  <Card className="p-6 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white/60 to-gray-200 backdrop-blur-lg border border-gray-200 animate-fade-in-up">
     <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-text-fade">
       {title}
     </h2>
@@ -13,38 +13,38 @@ const AboutSection = ({ title, children }) => (
 
 const About = () => {
   const stats = [
-    { number: "11+", label: "Years Experience" },
-    { number: "500+", label: "Projects Completed" },
+    { number: "13+", label: "Years Experience" },
+    { number: "200+", label: "Projects Completed" },
     { number: "98%", label: "Client Satisfaction" },
     { number: "24/7", label: "Support" },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-300 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 relative overflow-hidden">
       {/* Background Animation */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-300 to-indigo-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-purple-300 to-pink-400 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-300 to-indigo-400 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-purple-300 to-pink-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[40vh] flex items-center justify-center mb-16">
+      <div className="relative min-h-[40vh] md:h-[40vh] flex items-center justify-center mb-16 px-4">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/elevator-bg.jpg" // Add your image
+            src="/images/logo.jpeg" // Add your image
             alt="Elevator background"
             fill
             className="object-cover blur-sm"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center space-y-4">
-          <h1 className="text-5xl font-bold text-white drop-shadow-lg animate-fade-in-down">
+          <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg animate-fade-in-down">
             About Us
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto px-4 animate-fade-in-up">
-            London-based Property Lifts Ltd. is committed to providing premium lift services at competitive rates. From regular maintenance and timely repairs to complete installs and unique renovations, our extensive service options cover it all.
+          <p className="text-lg md:text-xl text-gray-200 max-w-xl mx-auto animate-fade-in-up">
+            London-based Property Lifts Ltd. is committed to providing premium lift services at competitive rates. From regular maintenance to complete installations, our extensive service options cover it all.
           </p>
         </div>
       </div>
@@ -58,8 +58,8 @@ const About = () => {
               key={index}
               className="p-6 text-center bg-gradient-to-br from-white/50 to-gray-100 backdrop-blur-md shadow-lg hover:scale-105 transition-transform duration-300"
             >
-              <h3 className="text-3xl font-bold text-blue-600">{stat.number}</h3>
-              <p className="text-gray-600">{stat.label}</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-blue-600">{stat.number}</h3>
+              <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
             </Card>
           ))}
         </div>
