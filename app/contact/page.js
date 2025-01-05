@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Add this to enable client-side features
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ const Contact = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/send-mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
