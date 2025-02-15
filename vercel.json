@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "app/api/send-mail/route.js": {
-      "maxDuration": 60
-    }
-  }
-}

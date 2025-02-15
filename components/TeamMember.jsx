@@ -9,11 +9,19 @@ import { LinkedinIcon } from "lucide-react"; // Make sure to install lucide-reac
 const teamMembers = [
   {
     name: "Niazi Mahrab",
-    role: "CEO",
+    role: "IT Manager",
     company: "Property Lifts Ltd",
     imageSrc: "/images/niazi.jpg",
+    linkedIn: "https://www.linkedin.com/in/niazi-mahrab-b16a96203/",
+    bio: "IT expert specializing in ERP development and customer-focused solutions.",
+  },
+  {
+    name: "Shuruzzaman Siddique",
+    role: "Technical Engineer",
+    company: "Property Lifts Ltd",
+    imageSrc: "/images/shuruzzaman.jpeg", // Update with the correct image path
     linkedIn: "#",
-    bio: "Visionary leader with over 10 years of experience in elevator solutions.",
+    bio: "18+ years of experience in lift system design, installation, and maintenance, ensuring safety and efficiency.",
   },
   // Add more team members as needed
 ];
@@ -26,42 +34,46 @@ const TeamMember = ({ name, role, company, imageSrc, linkedIn, bio }) => {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <Card className="group hover:shadow-lg transition-all duration-300">
-        <CardContent className="p-6">
-          <div className="flex flex-col items-center text-center">
-            {/* Image with proper aspect ratio */}
-            <div className="relative w-48 h-48 mb-6">
-              <div className="absolute inset-0 rounded-full overflow-hidden">
-                <Image
-                  src={imageSrc}
-                  alt={name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            </div>
+      <Card className="group hover:shadow-xl transition-all duration-300 h-full bg-gradient-to-b from-white to-gray-50 border border-gray-200 hover:border-blue-200">
+        <CardContent className="p-6 h-full flex flex-col">
+          <div className="flex flex-col items-center text-center flex-grow">
+            {/* Image with hover effect */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg"
+            >
+              <Image
+                src={imageSrc}
+                alt={name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </motion.div>
 
             {/* Content */}
-            <div className="space-y-3">
-              <h3 className="text-2xl font-semibold text-gray-900">{name}</h3>
-              <Badge variant="secondary" className="font-medium">
+            <div className="space-y-3 flex-grow">
+              <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
+              <Badge variant="secondary" className="font-medium bg-blue-100 text-blue-800">
                 {role}
               </Badge>
               <p className="text-sm text-gray-600">{company}</p>
               <p className="text-sm text-gray-500 leading-relaxed">{bio}</p>
-
-              {/* LinkedIn Button */}
-              <a
-                href={linkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors mt-4"
-              >
-                <LinkedinIcon className="w-5 h-5" />
-                <span>Connect on LinkedIn</span>
-              </a>
             </div>
+
+            {/* LinkedIn Button with hover effect */}
+            <motion.a
+              href={linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 transition-colors mt-4"
+            >
+              <LinkedinIcon className="w-5 h-5" />
+              <span>Connect on LinkedIn</span>
+            </motion.a>
           </div>
         </CardContent>
       </Card>
