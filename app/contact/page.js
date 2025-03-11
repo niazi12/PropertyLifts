@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ContactForm } from "./contactform";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -48,70 +49,7 @@ const Contact = () => {
       </div>
 
       {/* Contact Form Section */}
-      <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl space-y-8 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-        {/* Form */}
-        <div className="space-y-6">
-          <div className="space-y-4">
-            <div>
-              <label className="block text-lg font-medium text-gray-700" htmlFor="name">
-                Your Name
-              </label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Enter your name"
-                className="h-12 border border-gray-300 rounded-md w-full p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-105"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-
-            <div>
-              <label className="block text-lg font-medium text-gray-700" htmlFor="email">
-                Your Email
-              </label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 border border-gray-300 rounded-md w-full p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-105"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-
-            <div>
-              <label className="block text-lg font-medium text-gray-700" htmlFor="message">
-                Your Message
-              </label>
-              <Textarea
-                id="message"
-                placeholder="Your message"
-                className="min-h-[120px] border border-gray-300 rounded-md w-full p-4 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out transform hover:scale-105"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              />
-            </div>
-          </div>
-
-          {/* Submit Button */}
-          <div>
-            <Button 
-              className="w-full h-12 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105"
-              onClick={handleSubmit}
-            >
-              Send Message
-            </Button>
-          </div>
-
-          {/* Status Message */}
-          {status && (
-            <p className="mt-4 text-center text-lg text-gray-700 animate__animated animate__fadeIn">
-              {status}
-            </p>
-          )}
-        </div>
-      </div>
+      <ContactForm/>
 
       {/* Footer */}
       <div className="text-center mt-16 text-gray-600">
