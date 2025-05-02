@@ -10,31 +10,31 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setStatus("Sending...");
 
-    try {
-      const response = await fetch("/api/send-mail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  //   try {
+  //     const response = await fetch("/api/send-mail", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
 
-      const result = await response.json();
+  //     const result = await response.json();
 
-      if (response.ok) {
-        setStatus("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus(`Error: ${result.error || "Something went wrong."}`);
-      }
-    } catch (error) {
-      setStatus(`An error occurred: ${error.message}`);
-    }
-  };
+  //     if (response.ok) {
+  //       setStatus("Message sent successfully!");
+  //       setFormData({ name: "", email: "", message: "" });
+  //     } else {
+  //       setStatus(`Error: ${result.error || "Something went wrong."}`);
+  //     }
+  //   } catch (error) {
+  //     setStatus(`An error occurred: ${error.message}`);
+  //   }
+  // };
 
   return (
     <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-white min-h-screen py-16">
