@@ -114,7 +114,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} Property Lifts Ltd. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} NEURASYS Ltd. All rights reserved.</p>
       </div>
     </footer>
   );

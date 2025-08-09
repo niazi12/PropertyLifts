@@ -1,42 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import MobileNavbar from "./mobile-navbar";
 
 const navigationItems = [
-  {
-    title: "Services",
-    href: "/services",
-  },
-  {
-    title: "Products",
-    href: "/products",
-  },
-  {
-    title: "About",
-    href: "/about",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
-  },
+  { title: "Services", href: "/services" },
+  { title: "Products", href: "/products" },
+  { title: "About", href: "/about" },
+  { title: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const closeMenu = () => setMobileOpen(false);
+
   return (
     <header className="sticky px-4 top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="flex items-center space-x-3">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-3" onClick={closeMenu}>
           <Image
             src="/images/logo.jpeg"
             alt="Logo"
@@ -48,15 +41,16 @@ const Navbar = () => {
             Property Lifts Ltd
           </span>
         </Link>
-        {/* <NavigationMenu className="md:flex ml-auto"> */}
-        <NavigationMenu className="md:flex ml-auto">
+
+        {/* Desktop Menu */}
+        <NavigationMenu className="hidden md:flex ml-auto">
           <NavigationMenuList>
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.title}>
                 <Link href={item.href} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
-                      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     )}
                   >
                     {item.title}
@@ -72,6 +66,7 @@ const Navbar = () => {
           variant="ghost"
           className="ml-auto md:hidden"
           size="icon"
+          onClick={() => setMobileOpen(!mobileOpen)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +85,9 @@ const Navbar = () => {
           </svg>
         </Button>
       </div>
+
+      {/* Mobile Menu Drawer */}
+      {mobileOpen && <MobileNavbar items={navigationItems} closeMenu={closeMenu} />}
     </header>
   );
 };

@@ -1,61 +1,97 @@
-"use client";  // Add this at the top since we're using client-side animations
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-black">
-      {/* Background with Gradient Overlay */}
+    <section className="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/background.webp"
-          alt="Background"
-          fill
-          priority
-          className="object-cover object-center opacity-60"
+        <video
+          src="/videos/background.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl mx-auto text-center space-y-8"
+          className="max-w-3xl mx-auto text-center space-y-8"
         >
-          <h1 className="text-4xl md:text-5xl font-light text-white">
-            Elevating Properties
-            <span className="block font-medium mt-2">Through Innovation</span>
-          </h1>
+          {/* Heading */}
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, scale: 0.9, y: 20 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.3 }
+              }
+            }}
+            className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
+          >
+            <motion.span
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="block"
+            >
+              Elevating Properties
+            </motion.span>
+            <motion.span
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="block mt-2"
+            >
+              Through Innovation
+            </motion.span>
+          </motion.h1>
 
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Transforming spaces with modern lift solutions that blend 
-            seamlessly with your property's aesthetic.
+          {/* Paragraph */}
+          <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
+            Transforming spaces with modern lift solutions that blend seamlessly with your property's aesthetic.
           </p>
 
+          {/* Buttons with working links */}
           <div className="flex items-center justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-white text-black hover:bg-gray-100 px-8"
-            >
-              Our Services
-            </Button>
-            <Button 
-              
-              size="lg"
-              className="border-white text-white hover:bg-white/10 px-8"
-            >
-              Get in Touch
-            </Button>
+            <Link href="/services">
+              <Button
+                size="lg"
+                className="bg-white text-black hover:bg-gray-100 px-8"
+              >
+                Our Services
+              </Button>
+            </Link>
+
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="border-white text-white hover:bg-white/10 px-8"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>
 
-      {/* Decorative Element */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -66,7 +102,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
