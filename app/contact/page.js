@@ -51,10 +51,7 @@ const Contact = () => {
       {/* Contact Form Section */}
       <ContactForm/>
 
-      {/* Footer */}
-      <div className="text-center mt-16 text-gray-600">
-        <p>&copy; 2025 Property Lifts Ltd. All rights reserved.</p>
-      </div>
+    
     </div>
   );
 };
