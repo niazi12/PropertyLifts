@@ -9,8 +9,7 @@ const Footer = () => {
         <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-lg font-bold mb-4">Property Lifts Ltd</h2>
           <p className="text-sm leading-relaxed">
-            Thank you for choosing Property Lifts Ltd. We’re dedicated to providing reliable, innovative, and top-quality lift solutions tailored to your needs. Your trust inspires us to deliver excellence every step of the way!
-          </p>
+Thank you for choosing Property Lifts Ltd. We’re committed to delivering reliable, innovative lift solutions tailored to you. Your trust drives our excellence!          </p>
         </div>
 
         {/* Quick Links */}
@@ -86,7 +85,7 @@ const Footer = () => {
       {/* Social Links */}
       <div className="container mx-auto mt-8 flex justify-center space-x-6">
         <a
-          href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61556512595183"
+          href="https://www.facebook.com/Propertyliftsltd"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-blue-500 transition transform hover:scale-125"
