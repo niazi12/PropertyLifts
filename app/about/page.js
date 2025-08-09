@@ -11,6 +11,44 @@ const AboutSection = ({ title, children }) => (
   </Card>
 );
 
+const OurValuesSection = () => (
+  <section className="max-w-5xl mx-auto px-4 py-16">
+    <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      Our Values
+    </h2>
+    <div className="space-y-10 text-gray-700 leading-relaxed text-lg">
+      {[
+        {
+          title: "Engineering with Heart",
+          content:
+            "We're more than just experts; we're innovators who put people first. Our deep engineering knowledge allows us to build products that aren't just good, they're the best. We take the time to truly understand what you need, making sure our solutions fit seamlessly into your life. We're proud to lead our industry by upholding the highest standards of safety and ethics."
+        },
+        {
+          title: "Honesty is Our Compass",
+          content:
+            "We're a company with a clear purpose, and it's not just about the bottom line. Our independence means we can always do what's right for you. We listen carefully, act with transparency, and build trust through a genuine sense of responsibility. Your needs are at the core of every decision we make."
+        },
+        {
+          title: "A Better Future for All",
+          content:
+            "We believe in a world where everyone has the freedom to live life to the fullest. Our work is all about creating that world, one solution at a time. By improving access and convenience, we're not just making things easier—we're making a real difference in people's lives. We champion a better way of living, because we know our innovations can help create a more equal and fulfilling future."
+        }
+      ].map(({ title, content }, idx) => (
+        <div
+          key={idx}
+          className="group cursor-default transform transition duration-300 ease-in-out hover:scale-[1.04] hover:shadow-2xl hover:bg-blue-50 p-6 rounded-lg bg-white/80 border border-gray-200"
+          style={{ animationDelay: `${idx * 0.15}s` }}
+        >
+          <h3 className="font-semibold text-xl mb-2 text-blue-700 group-hover:text-purple-600 transition-colors duration-300">
+            {title}
+          </h3>
+          <p className="text-gray-700">{content}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
 const About = () => {
   const stats = [
     { number: "13+", label: "Years Experience" },
@@ -28,10 +66,10 @@ const About = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative min-h-[40vh] md:h-[40vh] flex items-center justify-center mb-16 px-4">
+      <div className="relative min-h-[60vh] md:h-[60vh] flex items-center justify-center mb-16 px-4">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/logo.jpeg" // Add your image
+            src="/images/background.webp"
             alt="Elevator background"
             fill
             className="object-cover blur-sm"
@@ -49,9 +87,8 @@ const About = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Stats Section */}
       <div className="container mx-auto px-4 pb-20 relative z-10">
-        {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
             <Card
@@ -65,7 +102,7 @@ const About = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           <AboutSection title="Our Mission">
             <p className="text-gray-700 leading-relaxed">
               At Property Lifts Ltd, we're committed to providing safe, efficient, and innovative lift solutions to enhance your everyday life. Our focus is on delivering excellence through quality products and exceptional service.
@@ -121,6 +158,9 @@ const About = () => {
             </div>
           </AboutSection>
         </div>
+
+        {/* Our Values Section */}
+        <OurValuesSection />
       </div>
     </div>
   );

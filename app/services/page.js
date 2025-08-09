@@ -10,7 +10,7 @@ const servicesData = [
     description:
       "Custom lift solutions for homes and apartments, designed to blend seamlessly with your interior while providing maximum accessibility.",
     features: ["Custom Design", "Space Efficient", "Low Noise", "Energy Saving"],
-    estimatedTime: "2-3 weeks",
+    estimatedTime: "2-4 weeks",
   },
   {
     id: 2,
