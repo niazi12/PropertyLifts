@@ -37,7 +37,6 @@ const servicesData = [
     description:
       "Immediate response for lift breakdowns, ensuring your lift is back in operation with minimal downtime.",
     features: [
-      "24/7 Availability",
       "Rapid Response Team",
       "Certified Repair Technicians",
       "Temporary Solutions Until Full Repair",

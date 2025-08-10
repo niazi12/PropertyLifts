@@ -19,7 +19,6 @@ const servicesData = [
     description:
       "Fast, reliable repair services for lift breakdowns and emergency call-outs to ensure minimal disruption.",
     features: [
-      "24/7 Availability",
       "Quick Diagnostics",
       "On-Site Repairs/On call",
       "Guaranteed Repair – fixed right the first time, every time",
