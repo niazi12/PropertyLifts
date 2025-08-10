@@ -41,7 +41,7 @@ const HeroSection = () => {
                 transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.3 }
               }
             }}
-            className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
+            className="text-5xl md:text-5xl font-extrabold text-white leading-tight"
           >
             <motion.span
               variants={{
