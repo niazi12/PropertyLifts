@@ -16,8 +16,10 @@ import MobileNavbar from "./mobile-navbar";
 const navigationItems = [
   { title: "Services", href: "/services" },
   { title: "Products", href: "/products" },
-  { title: "About", href: "/about" },
-  { title: "Contact", href: "/contact" },
+  { title: "About us", href: "/about" },
+  { title: "Careers", href: "/career" },
+  { title: "Contact us", href: "/contact" },
+  
 ];
 
 const Navbar = () => {
