@@ -32,7 +32,7 @@ const servicesData = [
     category: "Maintenance",
     description:
       "Regular maintenance and servicing to ensure your lifts operate at peak performance with minimal downtime.",
-    features: ["24/7 Support", "Preventive Care", "Safety Checks", "Performance Optimization"],
+    features: ["Preventive Care", "Safety Checks", "Performance Optimization"],
     estimatedTime: "Ongoing",
   },
   {
