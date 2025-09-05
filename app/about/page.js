@@ -82,7 +82,7 @@ const About = () => {
             About Us
           </h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-xl mx-auto animate-fade-in-up">
-            London-based Property Lifts Ltd. is committed to providing premium lift services at competitive rates. From regular maintenance to complete installations, our extensive service options cover it all.
+            London-based PROPERTY LIFTS LIMITED. is committed to providing premium lift services at competitive rates. From regular maintenance to complete installations, our extensive service options cover it all.
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <AboutSection title="Our Mission">
             <p className="text-gray-700 leading-relaxed">
-              At Property Lifts Ltd, we're committed to providing safe, efficient, and innovative lift solutions to enhance your everyday life. Our focus is on delivering excellence through quality products and exceptional service.
+              At PROPERTY LIFTS LIMITED, we're committed to providing safe, efficient, and innovative lift solutions to enhance your everyday life. Our focus is on delivering excellence through quality products and exceptional service.
             </p>
           </AboutSection>
 
@@ -135,7 +135,7 @@ const About = () => {
 
           <AboutSection title="Our History">
             <p className="text-gray-700 leading-relaxed">
-              Since our founding in 2011, Property Lifts Ltd has grown to become a trusted name in innovative lift solutions. Our journey is marked by continuous improvement and unwavering commitment to excellence.
+              Since our founding in 2011, PROPERTY LIFTS LIMITED has grown to become a trusted name in innovative lift solutions. Our journey is marked by continuous improvement and unwavering commitment to excellence.
             </p>
           </AboutSection>
 

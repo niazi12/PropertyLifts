@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Property Lifts Ltd",
+  title: "PROPERTY LIFTS LIMITED",
   description: "Developed by Niazi Mahrab",
 };
 

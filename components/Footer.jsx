@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="container mx-auto flex flex-wrap md:flex-nowrap gap-8 px-6">
         {/* Company Info */}
         <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
-          <h2 className="text-lg font-bold mb-4">Property Lifts Ltd</h2>
+          <h2 className="text-lg font-bold mb-4">PROPERTY LIFTS LIMITED</h2>
           <p className="text-sm leading-relaxed">
-Thank you for choosing Property Lifts Ltd. We’re committed to delivering reliable, innovative lift solutions tailored to you. Your trust drives our excellence!          </p>
+Thank you for choosing PROPERTY LIFTS LIMITED. We’re committed to delivering reliable, innovative lift solutions tailored to you. Your trust drives our excellence!          </p>
         </div>
 
         {/* Quick Links */}
@@ -42,12 +42,21 @@ Thank you for choosing Property Lifts Ltd. We’re committed to delivering relia
             </li>
             <li>
               <Link
+                href="/career"
+                className="hover:text-blue-400 transition transform hover:scale-105"
+              >
+                Careers
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact"
                 className="hover:text-blue-400 transition transform hover:scale-105"
               >
                 Contact Us
               </Link>
             </li>
+            
           </ul>
         </div>
 

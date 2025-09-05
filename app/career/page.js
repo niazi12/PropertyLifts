@@ -41,14 +41,14 @@ export default function CareerPage() {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Careers at Property Lifts Ltd
+            CAREERS 
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-lg text-gray-700 leading-relaxed mb-8"
           >
-            At <span className="font-semibold">Property Lifts Ltd</span>, we believe in
+            At <span className="font-semibold">PROPERTY LIFTS LIMITED</span>, we believe in
             building not just lifts, but also meaningful careers. We foster a
             culture of innovation, respect, and professional growth — where
             every team member can make a real impact. From engineering to
@@ -95,7 +95,7 @@ export default function CareerPage() {
         >
           <Image
             src="/images/career.png"
-            alt="Career Opportunities at Property Lifts Ltd"
+            alt="Career Opportunities at PROPERTY LIFTS LIMITED"
             fill
             className="object-cover hover:scale-105 transition-transform duration-500"
             priority

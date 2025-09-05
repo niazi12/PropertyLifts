@@ -33,14 +33,14 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-3" onClick={closeMenu}>
           <Image
-            src="/images/logo.jpeg"
+            src="/images/logo.png"
             alt="Logo"
-            width={40}
-            height={40}
+            width={60}
+            height={50}
             className="rounded-lg"
           />
           <span className="hidden font-semibold sm:inline-block">
-            Property Lifts Ltd
+            PROPERTY LIFTS LIMITED
           </span>
         </Link>
 

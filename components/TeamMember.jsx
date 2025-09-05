@@ -10,7 +10,7 @@ const teamMembers = [
   {
     name: "Niazi Mahrab",
     role: "IT Manager",
-    company: "Property Lifts Ltd",
+    company: "PROPERTY LIFTS LIMITED",
     imageSrc: "/images/niazi.jpg",
     linkedIn: "https://www.linkedin.com/in/niazi-mahrab-b16a96203/",
     bio: "IT expert specializing in ERP development and customer-focused solutions.",
@@ -18,7 +18,7 @@ const teamMembers = [
   {
     name: "Shuruzzaman Siddique",
     role: "Technical Engineer",
-    company: "Property Lifts Ltd",
+    company: "PROPERTY LIFTS LIMITED",
     imageSrc: "/images/shuruzzaman.jpeg", // Update with the correct image path
     linkedIn: "#",
     bio: "18+ years of experience in lift system design, installation, and maintenance, ensuring safety and efficiency.",
@@ -97,7 +97,7 @@ const TeamMembers = () => {
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             The innovative minds shaping the future of vertical transportation
-            solutions at Property Lifts Ltd.
+            solutions at PROPERTY LIFTS LIMITED.
           </p>
         </motion.div>
 
