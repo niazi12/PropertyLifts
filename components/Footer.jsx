@@ -76,7 +76,7 @@ Thank you for choosing PROPERTY LIFTS LIMITED. We’re committed to delivering r
               href="tel:+447359817484"
               className="hover:text-blue-400 transition transform hover:scale-105"
             >
-              +44 7359 817484
+              02038315882
             </a>
           </p>
           <p className="text-sm">

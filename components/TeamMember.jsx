@@ -9,7 +9,7 @@ import { LinkedinIcon } from "lucide-react"; // Make sure to install lucide-reac
 const teamMembers = [
   {
     name: "Niazi Mahrab",
-    role: "IT Manager",
+    role: "Software Programmer",
     company: "PROPERTY LIFTS LIMITED",
     imageSrc: "/images/niazi.jpg",
     linkedIn: "https://www.linkedin.com/in/niazi-mahrab-b16a96203/",
