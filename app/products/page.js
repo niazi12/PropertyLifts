@@ -1,129 +1,95 @@
-"use client";
-
-import { motion } from "framer-motion";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import Link from "next/link";
+import { Check } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
+import CtaBanner from "@/components/CtaBanner";
+
+export const metadata = {
+  title: "Products",
+  description:
+    "Home lifts, commercial lifts and dumbwaiters from PROPERTY LIFTS LIMITED, tailored to residential and commercial properties.",
+};
 
 const products = [
   {
-    id: 1,
     title: "Home Lifts",
-    description: "Elegant and compact lifts designed to seamlessly integrate into your home, enhancing accessibility and adding a touch of sophistication. These space-efficient and energy-saving lifts ensure quiet operation and can be customized to match your interior decor.",
+    description:
+      "Elegant, compact lifts designed to fit seamlessly into your home, improving accessibility and adding a touch of sophistication. Space-efficient and energy-saving, with quiet operation and finishes to match your interior.",
     image: "/images/resident.webp",
-    features: ["Space-efficient", "Quiet operation", "Modern design"],
+    features: ["Space-efficient", "Quiet operation", "Modern design", "Custom finishes"],
     category: "Residential",
   },
   {
-    id: 2,
     title: "Commercial Lifts",
     description:
-      "High-capacity lifts engineered for demanding commercial spaces such as offices, malls, and healthcare facilities. Featuring heavy-duty construction, smart controls, and exceptional speed, these lifts provide reliable and efficient performance while minimizing downtime.",
+      "High-capacity passenger lifts engineered for demanding spaces such as offices, shopping centres and healthcare buildings. Heavy-duty construction and smart controls deliver reliable, efficient performance.",
     image: "/images/commertial.webp",
-    features: ["Heavy duty", "High speed", "Smart controls"],
+    features: ["Heavy duty", "High capacity", "Smart controls", "Low downtime"],
     category: "Commercial",
   },
   {
-    id: 3,
     title: "Dumbwaiters",
     description:
-      "treamline your operations with our versatile dumbwaiters, ideal for restaurants, hotels, and homes. Compact yet robust, they ensure efficient and safe transportation of goods between floors, saving time and labor.",
+      "Streamline your operations with versatile dumbwaiters, ideal for restaurants, hotels and homes. Compact yet robust, they move goods safely between floors, saving time and effort.",
     image: "/images/dumb.png",
-    features: ["Compact Design", "Efficient", "Durable"],
+    features: ["Compact design", "Efficient", "Durable", "Easy to use"],
     category: "Utility",
   },
 ];
 
 const Products = () => {
   return (
-    <div className="bg-gray-50 py-16">
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-5xl font-extrabold mb-4 text-gray-800">
-            Explore Our Lift Solutions
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            From residential elegance to commercial efficiency, we provide lift
-            solutions tailored to your needs.
-          </p>
-        </motion.div>
+    <>
+      <PageHeader
+        eyebrow="Products"
+        title="Lift solutions for every building"
+        description="From elegant home lifts to heavy-duty commercial installations, we supply lifts tailored to your space and needs."
+        breadcrumbs={[{ label: "Products" }]}
+      />
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      <section className="py-20">
+        <div className="container-page space-y-16">
           {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
+            <article
+              key={product.title}
+              className="grid items-center gap-10 lg:grid-cols-2"
             >
-              <Card className="group relative bg-white overflow-hidden shadow-xl rounded-xl transform transition-transform duration-300 hover:scale-105">
-                {/* Image Section */}
-                <CardHeader className="relative h-64 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-4 right-4 bg-indigo-600 text-white px-3 py-1 rounded-full">
-                    {product.category}
-                  </Badge>
-                </CardHeader>
-
-                {/* Details Section */}
-                <CardContent className="p-6">
-                  <CardTitle className="text-2xl font-semibold mb-2">
-                    {product.title}
-                  </CardTitle>
-                  <CardDescription className="text-gray-600 mb-4">
-                    {product.description}
-                  </CardDescription>
-                  <div className="flex flex-wrap gap-2">
-                    {product.features.map((feature, i) => (
-                      <Badge
-                        key={i}
-                        variant="secondary"
-                        className="bg-gray-200 text-gray-800 px-2 py-1 rounded"
-                      >
-                        {feature}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+              <div
+                className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 shadow-lg ${
+                  index % 2 === 1 ? "lg:order-2" : ""
+                }`}
+              >
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <p className="eyebrow mb-3">{product.category}</p>
+                <h2 className="text-3xl font-bold tracking-tight text-slate-900">{product.title}</h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-600">{product.description}</p>
+                <ul className="mt-6 grid grid-cols-2 gap-3">
+                  {product.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-slate-700">
+                      <Check className="h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/quote?service=lift-installation" className="btn-primary mt-8">
+                  Get a Quote
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
+      </section>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-600 text-lg mb-4">
-            Looking for a custom solution?
-          </p>
-          <button className="bg-black text-white text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-gray-800 transition duration-300">
-            Contact Us
-          </button>
-        </motion.div>
-      </div>
-    </div>
+      <CtaBanner title="Looking for a custom solution?" description="Tell us about your building and we'll recommend the right lift." />
+    </>
   );
 };
 

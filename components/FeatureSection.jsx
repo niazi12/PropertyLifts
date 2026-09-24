@@ -1,92 +1,54 @@
-"use client";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { motion } from "framer-motion";
-import { Shield, Clock, Banknote } from "lucide-react"; // Import icons
+import { Clock, HardHat, ShieldCheck, BadgePoundSterling } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
+import { yearsExperience } from "@/lib/site";
 
 const features = [
   {
-    icon: <Shield className="w-10 h-10 text-blue-600" />,
-    title: "Expert Engineers",
+    icon: HardHat,
+    title: "Qualified Engineers",
     description:
-      "NVQ Level 4 certified engineers bringing unmatched expertise to every project, ensuring safety and efficiency.",
+      "NVQ Level 4 qualified engineers who know lifts inside out and put safety first on every job.",
   },
   {
-    icon: <Clock className="w-10 h-10 text-blue-600" />,
-    title: "13+ Years Experience",
+    icon: Clock,
+    title: `${yearsExperience}+ Years' Experience`,
     description:
-      "Delivering reliable lift solutions since 2011, with a proven track record of excellence and satisfaction.",
+      "Looking after lifts across London and the South East since 2011, with a proven track record.",
   },
   {
-    icon: <Banknote className="w-10 h-10 text-blue-600" />,
-    title: "Competitive Pricing",
+    icon: ShieldCheck,
+    title: "Safety & Compliance",
     description:
-      "Premium quality solutions at transparent, competitive rates tailored to your specific requirements.",
+      "Thorough servicing and clear records to help you meet your legal duties as a building owner or manager.",
+  },
+  {
+    icon: BadgePoundSterling,
+    title: "Transparent Pricing",
+    description:
+      "Clear, competitive quotes with no hidden extras. We explain what's needed and why before any work starts.",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
 export const FeatureSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="space-y-12"
-        >
-          {/* Section Header */}
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Why Choose Us?
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Experience excellence in lift solutions with our expert team and proven track record
-            </p>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                  <CardHeader className="space-y-6 text-center">
-                    <div className="mx-auto bg-blue-50 w-20 h-20 rounded-full flex items-center justify-center">
-                      {feature.icon}
-                    </div>
-                    <CardTitle className="text-xl font-semibold text-gray-900">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-center">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+    <section className="bg-slate-50 py-20 md:py-24">
+      <div className="container-page">
+        <SectionHeading
+          eyebrow="Why choose us"
+          title="A lift partner you can rely on"
+          description="Property managers, landlords and homeowners trust us to keep their lifts running safely."
+        />
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ icon: Icon, title, description }) => (
+            <div key={title} className="rounded-xl border bg-white p-6 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-amber-400">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <h3 className="mt-5 text-lg font-semibold text-slate-900">{title}</h3>
+              <p className="mt-2 leading-relaxed text-slate-600">{description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,107 +1,120 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { Check, Mail } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
+import { company } from "@/lib/site";
+
+export const metadata = {
+  title: "Careers",
+  description: `Join ${company.name}. We're hiring a Lift Technician in London. Send your CV to ${company.email}.`,
+};
+
+const responsibilities = [
+  "Planned maintenance and servicing of lifts",
+  "Fault finding and repairs on breakdown call-outs",
+  "Supporting new lift installations and modernisations",
+  "Completing service reports and following safety procedures",
+];
+
+const requirements = [
+  "Experience working on lifts (electrical/mechanical)",
+  "NVQ in Lift & Escalator Engineering, or working towards it",
+  "Full UK driving licence",
+  "Willingness to take part in an on-call rota",
+];
 
 export default function CareerPage() {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-      },
-    },
-  };
+  const applyHref = `mailto:${company.email}?subject=Lift%20Technician%20Application`;
 
   return (
-    <section className="min-h-screen bg-blue-50 py-16 px-6 relative">
-      <motion.div
-        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Left Column - Text */}
-        <div>
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-          >
-            CAREERS 
-          </motion.h1>
+    <>
+      <PageHeader
+        eyebrow="Careers"
+        title="Build your career with us"
+        description={`At ${company.name} we believe in building not just lifts, but meaningful careers. We foster a culture of respect and professional growth, where every team member makes a real impact.`}
+        breadcrumbs={[{ label: "Careers" }]}
+      />
 
-          <motion.p
-            variants={itemVariants}
-            className="text-lg text-gray-700 leading-relaxed mb-8"
-          >
-            At <span className="font-semibold">PROPERTY LIFTS LIMITED</span>, we believe in
-            building not just lifts, but also meaningful careers. We foster a
-            culture of innovation, respect, and professional growth — where
-            every team member can make a real impact. From engineering to
-            customer service, our people are the heart of what we do.
-          </motion.p>
+      <section className="py-20">
+        <div className="container-page grid gap-12 lg:grid-cols-3">
+          {/* Vacancy */}
+          <article className="rounded-xl border bg-white p-6 shadow-sm md:p-8 lg:col-span-2">
+            <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
+              Now hiring
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-slate-900">Lift Technician</h2>
+            <p className="mt-2 text-slate-500">
+              Full-time · London &amp; surrounding areas · Competitive salary
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-slate-700">
+              We&apos;re looking for a skilled Lift Technician to join our team, carrying out
+              installation, servicing, repair and breakdown work on passenger and goods lifts across
+              residential and commercial sites.
+            </p>
 
-          <motion.div
-            variants={itemVariants}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-            }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            className="bg-white p-8 rounded-xl shadow-lg border cursor-pointer"
-          >
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Currently No Vacancies
-            </h2>
-            <p className="text-gray-700 mb-4">
-              We’re not actively hiring at the moment, but we’re always on the
-              lookout for passionate, talented individuals who share our values.
-            </p>
-            <p className="text-gray-700">
-              If you’d like to be considered for future opportunities, feel free
-              to send your CV to{" "}
-              <motion.a
-                href="mailto:info@propertylifts.co.uk"
-                className="text-blue-600 hover:underline font-medium"
-                whileHover={{ scale: 1.05, color: "#1e40af" }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                info@propertylifts.co.uk
-              </motion.a>
-              . We’ll keep your details on file and reach out if a suitable role
-              opens up.
-            </p>
-          </motion.div>
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">Responsibilities</h3>
+                <ul className="mt-4 space-y-3">
+                  {responsibilities.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate-700">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">Requirements</h3>
+                <ul className="mt-4 space-y-3">
+                  {requirements.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-slate-700">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 border-t pt-8 sm:flex-row sm:items-center">
+              <a href={applyHref} className="btn-accent">
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Apply by Email
+              </a>
+              <p className="text-sm text-slate-600">
+                Send your CV to{" "}
+                <a href={applyHref} className="font-semibold text-primary hover:underline">
+                  {company.email}
+                </a>{" "}
+                with the subject &ldquo;Lift Technician Application&rdquo;.
+              </p>
+            </div>
+          </article>
+
+          {/* Sidebar */}
+          <aside className="space-y-6">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-sm">
+              <Image
+                src="/images/career.webp"
+                alt="Careers at PROPERTY LIFTS LIMITED"
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="rounded-xl bg-slate-50 p-6">
+              <h2 className="font-semibold text-slate-900">Don&apos;t see the right role?</h2>
+              <p className="mt-2 text-slate-600">
+                We&apos;re always interested in hearing from talented people. Send your CV to{" "}
+                <a href={`mailto:${company.email}`} className="font-medium text-primary hover:underline">
+                  {company.email}
+                </a>{" "}
+                and we&apos;ll keep your details on file.
+              </p>
+            </div>
+          </aside>
         </div>
-
-        {/* Right Column - Image */}
-        <motion.div
-          variants={itemVariants}
-          className="relative w-full h-[450px] rounded-xl overflow-hidden shadow-lg"
-        >
-          <Image
-            src="/images/career.png"
-            alt="Career Opportunities at PROPERTY LIFTS LIMITED"
-            fill
-            className="object-cover hover:scale-105 transition-transform duration-500"
-            priority
-          />
-        </motion.div>
-      </motion.div>
-    </section>
+      </section>
+    </>
   );
 }
