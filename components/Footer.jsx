@@ -6,6 +6,8 @@ import { company, services } from "@/lib/site";
 const companyLinks = [
   { title: "About Us", href: "/about" },
   { title: "Products", href: "/products" },
+  { title: "Projects", href: "/projects" },
+  { title: "Blog", href: "/blog" },
   { title: "Areas We Cover", href: "/areas" },
   { title: "FAQ", href: "/faq" },
   { title: "Careers", href: "/career" },

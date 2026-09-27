@@ -10,6 +10,8 @@ import { company } from "@/lib/site";
 const navigationItems = [
   { title: "Services", href: "/services" },
   { title: "Products", href: "/products" },
+  { title: "Projects", href: "/projects" },
+  { title: "Blog", href: "/blog" },
   { title: "Areas", href: "/areas" },
   { title: "About", href: "/about" },
   { title: "FAQ", href: "/faq" },
@@ -63,7 +65,7 @@ const Navbar = () => {
             </span>
           </Link>
 
-          <nav className="ml-auto hidden lg:block" aria-label="Main">
+          <nav className="ml-auto hidden xl:block" aria-label="Main">
             <ul className="flex items-center gap-1">
               {navigationItems.map((item) => (
                 <li key={item.href}>
@@ -82,13 +84,13 @@ const Navbar = () => {
             </ul>
           </nav>
 
-          <Link href="/quote" className="btn-accent ml-auto hidden py-2 text-sm lg:ml-0 lg:inline-flex">
+          <Link href="/quote" className="btn-accent ml-auto hidden py-2 text-sm xl:ml-0 xl:inline-flex">
             Get a Quote
           </Link>
 
           <button
             type="button"
-            className="ml-auto rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            className="ml-auto rounded-md p-2 text-slate-700 hover:bg-slate-100 xl:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -99,7 +101,7 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <nav className="border-t bg-white lg:hidden" aria-label="Mobile">
+          <nav className="border-t bg-white xl:hidden" aria-label="Mobile">
             <ul className="container-page flex flex-col py-4">
               {navigationItems.map((item) => (
                 <li key={item.href}>
