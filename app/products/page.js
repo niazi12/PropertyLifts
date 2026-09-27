@@ -1,39 +1,96 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Info } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import CtaBanner from "@/components/CtaBanner";
+import LiftIllustration from "@/components/LiftIllustration";
 
 export const metadata = {
   title: "Products",
   description:
-    "Home lifts, commercial lifts and dumbwaiters from PROPERTY LIFTS LIMITED, tailored to residential and commercial properties.",
+    "Passenger lifts, home lifts, platform and stair lifts, goods lifts and dumbwaiters, supplied, installed and maintained by PROPERTY LIFTS LIMITED.",
 };
 
+// Typical ranges only — exact specifications depend on the manufacturer and the building.
 const products = [
   {
+    id: "passenger-lifts",
+    type: "passenger",
+    title: "Passenger Lifts",
+    category: "Residential & Commercial",
+    description:
+      "Traction and machine-room-less (MRL) passenger lifts for blocks of flats, offices, hotels, shops and healthcare buildings. Designed for smooth, quiet, reliable everyday use.",
+    specs: [
+      ["Capacity", "Approx. 450–1,600 kg (6–21 people)"],
+      ["Speed", "Typically 1.0–1.6 m/s"],
+      ["Drive", "Traction or hydraulic; MRL options"],
+      ["Building work", "Lift shaft and pit required"],
+    ],
+    bestFor: ["Residential blocks", "Offices", "Hotels", "Healthcare"],
+    service: "lift-installation",
+  },
+  {
+    id: "home-lifts",
+    type: "home",
     title: "Home Lifts",
-    description:
-      "Elegant, compact lifts designed to fit seamlessly into your home, improving accessibility and adding a touch of sophistication. Space-efficient and energy-saving, with quiet operation and finishes to match your interior.",
-    image: "/images/resident.webp",
-    features: ["Space-efficient", "Quiet operation", "Modern design", "Custom finishes"],
     category: "Residential",
-  },
-  {
-    title: "Commercial Lifts",
     description:
-      "High-capacity passenger lifts engineered for demanding spaces such as offices, shopping centres and healthcare buildings. Heavy-duty construction and smart controls deliver reliable, efficient performance.",
-    image: "/images/commertial.webp",
-    features: ["Heavy duty", "High capacity", "Smart controls", "Low downtime"],
-    category: "Commercial",
+      "Compact, stylish lifts for private homes. Many models are self-supporting with little or no pit, so they can often be installed without major building work.",
+    specs: [
+      ["Capacity", "Typically 1–3 people, some with wheelchair access"],
+      ["Speed", "Around 0.15 m/s"],
+      ["Travel", "Usually 2–4 floors"],
+      ["Building work", "Minimal; often no pit or shaft needed"],
+    ],
+    bestFor: ["Private houses", "Adapting a home for mobility", "Split-level properties"],
+    service: "lift-installation",
   },
   {
+    id: "platform-and-stair-lifts",
+    type: "platform",
+    title: "Platform & Stair Lifts",
+    category: "Accessibility",
+    description:
+      "Vertical platform lifts and inclined stair lifts that give wheelchair users and people with limited mobility step-free access, without the space or cost of a full passenger lift.",
+    specs: [
+      ["Capacity", "Typically 250–500 kg"],
+      ["Speed", "Up to 0.15 m/s"],
+      ["Travel", "From a few steps up to several floors"],
+      ["Building work", "Shallow pit or ramp; enclosed or open designs"],
+    ],
+    bestFor: ["Public buildings", "Schools", "Shops and offices", "Homes"],
+    service: "platform-and-stair-lifts",
+  },
+  {
+    id: "goods-lifts",
+    type: "goods",
+    title: "Goods Lifts",
+    category: "Commercial & Industrial",
+    description:
+      "Heavy-duty lifts for moving stock, equipment and deliveries between floors. Built to withstand frequent loading, including by trolley or pallet truck.",
+    specs: [
+      ["Capacity", "Approx. 250 kg to 2,000 kg+"],
+      ["Use", "Goods only, or goods with an attendant"],
+      ["Drive", "Traction or hydraulic"],
+      ["Building work", "Shaft and pit; heavy-duty car and doors"],
+    ],
+    bestFor: ["Warehouses", "Retail", "Restaurants", "Workshops"],
+    service: "lift-installation",
+  },
+  {
+    id: "dumbwaiters",
+    type: "dumbwaiter",
     title: "Dumbwaiters",
+    category: "Service Lifts",
     description:
-      "Streamline your operations with versatile dumbwaiters, ideal for restaurants, hotels and homes. Compact yet robust, they move goods safely between floors, saving time and effort.",
-    image: "/images/dumb.png",
-    features: ["Compact design", "Efficient", "Durable", "Easy to use"],
-    category: "Utility",
+      "Small service lifts for moving food, linen, documents and light goods between floors. Ideal for restaurants, hotels, care homes and larger houses.",
+    specs: [
+      ["Capacity", "Typically 50–300 kg"],
+      ["Loading", "Counter-height or floor-level hatches"],
+      ["Footprint", "Compact; fits into existing spaces"],
+      ["Building work", "Small shaft or self-supporting frame"],
+    ],
+    bestFor: ["Restaurants", "Hotels", "Care homes", "Large houses"],
+    service: "lift-installation",
   },
 ];
 
@@ -43,52 +100,92 @@ const Products = () => {
       <PageHeader
         eyebrow="Products"
         title="Lift solutions for every building"
-        description="From elegant home lifts to heavy-duty commercial installations, we supply lifts tailored to your space and needs."
+        description="We supply, install and maintain a full range of lifts, from compact home lifts to heavy-duty goods lifts."
         breadcrumbs={[{ label: "Products" }]}
       />
 
+      {/* Quick links */}
+      <nav aria-label="Lift types" className="border-b bg-white">
+        <ul className="container-page flex gap-2 overflow-x-auto py-4">
+          {products.map((product) => (
+            <li key={product.id} className="shrink-0">
+              <a
+                href={`#${product.id}`}
+                className="inline-block rounded-full border px-4 py-2 text-sm font-medium text-slate-700 hover:border-amber-400 hover:text-primary"
+              >
+                {product.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <section className="py-20">
-        <div className="container-page space-y-16">
+        <div className="container-page space-y-20">
           {products.map((product, index) => (
             <article
-              key={product.title}
-              className="grid items-center gap-10 lg:grid-cols-2"
+              key={product.id}
+              id={product.id}
+              className="grid scroll-mt-40 items-center gap-10 lg:grid-cols-2"
             >
               <div
-                className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 shadow-lg ${
+                className={`aspect-square max-h-[420px] w-full rounded-2xl bg-slate-50 p-10 ${
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
+                <LiftIllustration type={product.type} title={`${product.title} illustration`} />
               </div>
+
               <div>
                 <p className="eyebrow mb-3">{product.category}</p>
                 <h2 className="text-3xl font-bold tracking-tight text-slate-900">{product.title}</h2>
                 <p className="mt-4 text-lg leading-relaxed text-slate-600">{product.description}</p>
-                <ul className="mt-6 grid grid-cols-2 gap-3">
-                  {product.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-slate-700">
-                      <Check className="h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
-                      {feature}
+
+                <dl className="mt-6 divide-y rounded-xl border bg-white">
+                  {product.specs.map(([label, value]) => (
+                    <div key={label} className="grid grid-cols-3 gap-4 px-4 py-3 text-sm">
+                      <dt className="font-medium text-slate-500">{label}</dt>
+                      <dd className="col-span-2 text-slate-800">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+                  {product.bestFor.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
+                      <Check className="h-4 w-4 shrink-0 text-amber-500" aria-hidden="true" />
+                      {item}
                     </li>
                   ))}
                 </ul>
-                <Link href="/quote?service=lift-installation" className="btn-primary mt-8">
-                  Get a Quote
-                </Link>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href={`/quote?service=${product.service}`} className="btn-primary">
+                    Get a Quote
+                  </Link>
+                  <Link
+                    href={`/services/${product.service}`}
+                    className="inline-flex items-center justify-center rounded-md border px-6 py-3 font-semibold text-slate-700 hover:border-amber-400 hover:text-primary"
+                  >
+                    Learn more
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
+
+          <p className="flex items-start gap-3 rounded-xl bg-slate-50 p-5 text-sm text-slate-600">
+            <Info className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" aria-hidden="true" />
+            Specifications shown are typical ranges and vary by manufacturer and model. We&apos;ll
+            confirm exact capacity, dimensions and building requirements after a site survey.
+          </p>
         </div>
       </section>
 
-      <CtaBanner title="Looking for a custom solution?" description="Tell us about your building and we'll recommend the right lift." />
+      <CtaBanner
+        title="Not sure which lift is right for you?"
+        description="Tell us about your building and we'll recommend the best option."
+      />
     </>
   );
 };

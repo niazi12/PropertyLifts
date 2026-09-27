@@ -21,7 +21,8 @@ export default function PrivacyPage() {
             <h2>Who we are</h2>
             <p>
               {company.name} (&quot;we&quot;, &quot;us&quot;) is a lift services company based at{" "}
-              {company.address.street}, {company.address.town}, {company.address.postcode}. We are
+              {company.address.street}, {company.address.town}, {company.address.postcode}, registered
+              in England &amp; Wales with company number {company.companyNumber}. We are
               the data controller for personal information collected through this website.
             </p>
           </div>

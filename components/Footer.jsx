@@ -123,11 +123,18 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
-        <div className="container-page flex flex-col gap-2 py-5 text-xs text-slate-400 sm:flex-row sm:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} {company.name}. All rights reserved.
-          </p>
-          <Link href="/privacy" className="hover:text-amber-400">
+        <div className="container-page flex flex-col gap-3 py-5 text-xs text-slate-400 sm:flex-row sm:justify-between">
+          <div className="space-y-1">
+            <p>
+              &copy; {new Date().getFullYear()} {company.name}. All rights reserved.
+            </p>
+            <p>
+              Registered in England &amp; Wales, company number {company.companyNumber}. Registered
+              office: {company.address.street}, {company.address.town}, {company.address.region},{" "}
+              {company.address.postcode}.
+            </p>
+          </div>
+          <Link href="/privacy" className="shrink-0 hover:text-amber-400">
             Privacy Policy
           </Link>
         </div>

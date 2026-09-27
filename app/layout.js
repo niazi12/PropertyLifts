@@ -45,6 +45,11 @@ const businessSchema = {
   telephone: "+442038315882",
   email: company.email,
   foundingDate: String(company.founded),
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "Companies House number",
+    value: company.companyNumber,
+  },
   image: `${company.url}/images/logo.png`,
   address: {
     "@type": "PostalAddress",
