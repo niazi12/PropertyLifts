@@ -12,6 +12,7 @@ const companyLinks = [
   { title: "FAQ", href: "/faq" },
   { title: "Careers", href: "/career" },
   { title: "Contact Us", href: "/contact" },
+  { title: "Leave a Testimonial", href: "/review" },
   { title: "Privacy Policy", href: "/privacy" },
 ];
 
