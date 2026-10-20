@@ -6,9 +6,9 @@ import { sendNotification } from '@/lib/mailer';
 const TestimonialSchema = z.object({
   name: z.string().trim().min(2, 'Please enter your name'),
   email: z.string().trim().email('Please enter a valid email address'),
-  role: z.string().trim().optional(),
+  role: z.string().trim().min(2, 'Please enter your role or company'),
   location: z.string().trim().optional(),
-  service: z.string().trim().optional(),
+  service: z.string().trim().min(1, 'Please choose the service we provided'),
   rating: z.coerce.number().int().min(1, 'Please choose a star rating').max(5),
   testimonial: z.string().trim().min(10, 'Please write a few words about your experience'),
   displayName: z.enum(['full', 'initial', 'anonymous']),
@@ -30,9 +30,9 @@ export async function sendTestimonial(prevState, formData) {
   const validatedFields = TestimonialSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
-    role: formData.get('role') ?? undefined,
+    role: formData.get('role') ?? '',
     location: formData.get('location') ?? undefined,
-    service: formData.get('service') ?? undefined,
+    service: formData.get('service') ?? '',
     rating: formData.get('rating'),
     testimonial: formData.get('testimonial'),
     displayName: formData.get('displayName'),

@@ -88,11 +88,12 @@ export default function ReviewForm() {
           <span className="mt-1 block text-xs font-normal text-slate-500">Never published.</span>
         </label>
         <label className={labelClass}>
-          Role or company <span className="font-normal text-slate-500">(optional)</span>
+          Role or company *
           <input
             name="role"
             type="text"
             placeholder="e.g. Property Manager, ABC Housing"
+            required
             disabled={isPending}
             className={fieldClass}
           />
@@ -104,9 +105,11 @@ export default function ReviewForm() {
       </div>
 
       <label className={labelClass}>
-        Service we provided <span className="font-normal text-slate-500">(optional)</span>
-        <select name="service" disabled={isPending} defaultValue="" className={fieldClass}>
-          <option value="">Select…</option>
+        Service we provided *
+        <select name="service" required disabled={isPending} defaultValue="" className={fieldClass}>
+          <option value="" disabled>
+            Select…
+          </option>
           {services.map((service) => (
             <option key={service.slug}>{service.title}</option>
           ))}
