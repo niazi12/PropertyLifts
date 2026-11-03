@@ -43,9 +43,10 @@ export default function Testimonials({ limit = 6 }) {
               </blockquote>
               <figcaption className="mt-6 border-t pt-4">
                 <p className="font-semibold text-slate-900">{t.name}</p>
-                {(t.role || t.location) && (
-                  <p className="text-sm text-slate-500">{[t.role, t.location].filter(Boolean).join(" · ")}</p>
+                {(t.role || t.company) && (
+                  <p className="text-sm text-slate-600">{[t.role, t.company].filter(Boolean).join(", ")}</p>
                 )}
+                {t.location && <p className="text-sm text-slate-500">{t.location}</p>}
               </figcaption>
             </figure>
           ))}

@@ -88,34 +88,53 @@ export default function ReviewForm() {
           <span className="mt-1 block text-xs font-normal text-slate-500">Never published.</span>
         </label>
         <label className={labelClass}>
-          Role or company *
+          Your role *
           <input
             name="role"
             type="text"
-            placeholder="e.g. Property Manager, ABC Housing"
+            autoComplete="organization-title"
+            placeholder="e.g. Property Manager"
             required
             disabled={isPending}
             className={fieldClass}
           />
         </label>
         <label className={labelClass}>
-          Location <span className="font-normal text-slate-500">(optional)</span>
-          <input name="location" type="text" placeholder="e.g. Leytonstone" disabled={isPending} className={fieldClass} />
+          Company *
+          <input
+            name="company"
+            type="text"
+            autoComplete="organization"
+            placeholder="e.g. ABC Housing Ltd"
+            required
+            disabled={isPending}
+            className={fieldClass}
+          />
+        </label>
+        <label className={labelClass}>
+          Location *
+          <input
+            name="location"
+            type="text"
+            placeholder="e.g. Leytonstone"
+            required
+            disabled={isPending}
+            className={fieldClass}
+          />
+        </label>
+        <label className={labelClass}>
+          Service we provided *
+          <select name="service" required disabled={isPending} defaultValue="" className={fieldClass}>
+            <option value="" disabled>
+              Select…
+            </option>
+            {services.map((service) => (
+              <option key={service.slug}>{service.title}</option>
+            ))}
+            <option>Other</option>
+          </select>
         </label>
       </div>
-
-      <label className={labelClass}>
-        Service we provided *
-        <select name="service" required disabled={isPending} defaultValue="" className={fieldClass}>
-          <option value="" disabled>
-            Select…
-          </option>
-          {services.map((service) => (
-            <option key={service.slug}>{service.title}</option>
-          ))}
-          <option>Other</option>
-        </select>
-      </label>
 
       <fieldset>
         <legend className={labelClass}>How should we show your name? *</legend>
