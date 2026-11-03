@@ -12,6 +12,11 @@ const ContactFormSchema = z.object({
 });
 
 export async function sendContactEmail(prevState, formData) {
+  // Hidden field that only bots fill in.
+  if (formData.get('website')) {
+    return { message: "Thank you! Your message has been sent successfully.", success: true, error: false };
+  }
+
   const validatedFields = ContactFormSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),

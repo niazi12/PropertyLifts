@@ -49,6 +49,14 @@ export const ContactForm = () => {
         <textarea name="message" rows={6} required disabled={isPending} className={fieldClass} />
       </label>
 
+      {/* Spam trap: hidden from people, filled in by bots */}
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <button type="submit" disabled={isPending} className="btn-accent w-full sm:w-auto">
         {isPending ? "Sending…" : "Send Message"}
         <Send className="h-4 w-4" aria-hidden="true" />

@@ -38,8 +38,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               We also use analytics tools to collect anonymous information about how visitors use
-              this website, such as pages viewed and device type. This site may also display
-              advertising provided by Google, which can use cookies to show relevant ads.
+              this website, such as pages viewed and device type. These tools do not use
+              advertising cookies.
             </p>
           </div>
 

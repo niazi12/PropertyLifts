@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/next"
-import Script from "next/script";
 import { company } from "@/lib/site";
 
 
@@ -80,12 +79,6 @@ export default function RootLayout({ children }) {
         <SpeedInsights />
         <Footer />
         <Analytics />
-        <Script
-          id="adsense-script"
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9830129627192162"
-          crossOrigin="anonymous"
-        />
       </body>
     </html>
   );

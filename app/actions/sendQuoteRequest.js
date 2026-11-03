@@ -15,6 +15,11 @@ const QuoteSchema = z.object({
 });
 
 export async function sendQuoteRequest(prevState, formData) {
+  // Hidden field that only bots fill in.
+  if (formData.get('website')) {
+    return { message: "Thanks! We've received your request and will be in touch shortly.", success: true, error: false };
+  }
+
   const validatedFields = QuoteSchema.safeParse(Object.fromEntries(formData));
 
   if (!validatedFields.success) {

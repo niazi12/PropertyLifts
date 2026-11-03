@@ -109,6 +109,14 @@ export default function QuoteForm({ defaultService = "" }) {
         />
       </label>
 
+      {/* Spam trap: hidden from people, filled in by bots */}
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <p className="text-xs text-slate-500">
         We&apos;ll only use your details to respond to your request. See our{" "}
         <a href="/privacy" className="underline hover:text-slate-700">
